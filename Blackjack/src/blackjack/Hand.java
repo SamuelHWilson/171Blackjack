@@ -12,7 +12,7 @@ import cards.*;
 public interface Hand {
     void dealCard(Card c);
     void removeCard(Card c);
-    CardCollection getCards();
+    Card[] getCards();
     
     int GetHandValue();
     
