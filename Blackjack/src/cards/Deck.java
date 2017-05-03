@@ -38,7 +38,6 @@ public class Deck {
     
     //Desc: Adds internal method for reintroducing cards to the deck. Example: See DiscardDeck
     protected void reintroduce(Collection<Card> cards) {
-        System.out.println("Ran");
         deckArray.addAll(cards);
     }
 }
