@@ -1,6 +1,7 @@
 package cards;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Developer:   Samuel H Wilson
@@ -10,12 +11,10 @@ import java.util.ArrayList;
  * Purpose:     Simulates a deck of 52 playing cards.   
  */
 public class Deck {
-    public ArrayList<Card> deckArray;
+    private ArrayList<Card> deckArray = new ArrayList();
     
     //Desc: Constructs a new Deck with 52 cards.
-    public Deck() {
-        deckArray = new ArrayList();
-        
+    public Deck() {      
         for (int i = 0; i < 52; i++) {
             deckArray.add(new Card(i));
         }
@@ -26,13 +25,20 @@ public class Deck {
         java.util.Collections.shuffle(deckArray);
     }
     
-    //Desc: Draws top card from deck
+    //Desc: Draws top card from deck. Returns null if can't
     public Card draw() {
-        return deckArray.remove(0);
+        if (canDraw()) return deckArray.remove(0);
+        else return null;
     }
     
     //Desc: Returns true if there is a card to draw
     public boolean canDraw() {
         return deckArray.size() != 0;
+    }
+    
+    //Desc: Adds internal method for reintroducing cards to the deck. Example: See DiscardDeck
+    protected void reintroduce(Collection<Card> cards) {
+        System.out.println("Ran");
+        deckArray.addAll(cards);
     }
 }
