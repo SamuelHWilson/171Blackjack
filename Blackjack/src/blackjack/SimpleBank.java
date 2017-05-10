@@ -34,15 +34,14 @@ public class SimpleBank implements Bank {
         return toWithdraw <= balance;
     }
     
-    //Desc: Attempts to take moeny from balance, returns true if success false if not
+    //Desc: subtracts money from balance. Raises exception if balance is bellow 0.
     @Override
-    public boolean attemptWithdraw(double toWithdraw) {
+    public void withdraw(double toWithdraw) {
         //Check if there is enough money. If not, return false
         if (!canWithdraw(toWithdraw)) {
-            return false;
+            throw new IllegalArgumentException(String.format("Bad withdraw. Attempted to withdraw $%.2f from a bank with a balance of $%.2f.", toWithdraw, balance));
         }
         
         balance -= toWithdraw;
-        return true;
     }
 }

@@ -14,7 +14,7 @@ public interface Hand {
     void dealCard(Card c);
     Collection<Card> getCards();
     
-    int GetHandValue();
+    int getHandValue();
     
     void setBet(double bet);
     void increaseBet(double toIncrease);

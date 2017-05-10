@@ -37,7 +37,7 @@ public class SimpleHand implements Hand{
     //      2. Counts the aces
     //      3. If hand exceeds 21, reduce ace values to 1 point.
     @Override
-    public int GetHandValue() {
+    public int getHandValue() {
         int aces = 0;
         int value = 0;
         
