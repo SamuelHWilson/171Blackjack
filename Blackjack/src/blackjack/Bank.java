@@ -8,9 +8,9 @@ package blackjack;
  * Purpose:     Creates a basic template for all banks. They are used to keep track of Player's money.
  */
 public interface Bank {
-    void setBalance(int balance);
-    int getBalance();
-    void deposit(int toDeposit);
-    boolean canWithdraw(int checkWithdraw);
-    boolean attemptWithdraw(int toWithdraw);
+    void setBalance(double balance);
+    double getBalance();
+    void deposit(double toDeposit);
+    boolean canWithdraw(double checkWithdraw);
+    boolean attemptWithdraw(double toWithdraw);
 }

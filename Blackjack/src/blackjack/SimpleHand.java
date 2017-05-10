@@ -13,8 +13,8 @@ import java.util.Collection;
  */
 public class SimpleHand implements Hand{
     private ArrayList<Card> cards = new ArrayList();
-    private int bet = 0;
-    private int insurance = 0;
+    private double bet = 0;
+    private double insurance = 0;
     
     private final int[] CARD_VALUES = new int[] {11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10};
     
@@ -65,19 +65,19 @@ public class SimpleHand implements Hand{
     
     //Desc: Sets bet
     @Override
-    public void setBet(int bet) {
+    public void setBet(double bet) {
         this.bet = bet;
     }
     
     //Desc: Adds toIncrease to bet
     @Override
-    public void increaseBet(int toIncrease) {
+    public void increaseBet(double toIncrease) {
         bet += toIncrease;
     }
     
     //Desc: Gets bet
     @Override
-    public int getBet() {
+    public double getBet() {
         return bet;
     }
     
@@ -86,13 +86,13 @@ public class SimpleHand implements Hand{
     
     //Desc: Sets insurance
     @Override
-    public void setInsurance(int insurance) {
+    public void setInsurance(double insurance) {
         this.insurance = insurance;
     }
     
     //Desc: Gets insurance
     @Override
-    public int getInsurance() {
+    public double getInsurance() {
         return insurance;
     }
 }

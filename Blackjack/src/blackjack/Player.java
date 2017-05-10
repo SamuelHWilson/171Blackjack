@@ -14,9 +14,10 @@ public interface Player {
     
     void dealCard(Card c);
     boolean checkBust();
-    void getPoints();
+    int getPoints();
     
     void setBet(double bet);
+    double getBalance();
     
     void doubleDown();
     void takeInsurance(double insurance);

@@ -16,10 +16,10 @@ public interface Hand {
     
     int GetHandValue();
     
-    void setBet(int bet);
-    void increaseBet(int toIncrease);
-    int getBet();
+    void setBet(double bet);
+    void increaseBet(double toIncrease);
+    double getBet();
     
-    void setInsurance(int insurance);
-    int getInsurance();
+    void setInsurance(double insurance);
+    double getInsurance();
 }
