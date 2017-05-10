@@ -11,15 +11,14 @@ import cards.*;
  */
 public interface Hand {
     void dealCard(Card c);
-    void removeCard(Card c);
-    Card[] getCards();
+    Collection<Card> getCards();
     
     int GetHandValue();
     
-    void setBet(double bet);
-    void increaseBet(double toIncrease);
-    double getBet();
+    void setBet(int bet);
+    void increaseBet(int toIncrease);
+    int getBet();
     
-    void setInsurance(double insurance);
-    double getInsurance();
+    void setInsurance(int insurance);
+    int getInsurance();
 }
