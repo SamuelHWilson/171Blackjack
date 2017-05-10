@@ -11,6 +11,6 @@ public interface Bank {
     void setBalance(int balance);
     int getBalance();
     void deposit(int toDeposit);
-    int canWithdraw(int checkWithdraw);
-    int attemptWithdraw(int toWithdraw);
+    boolean canWithdraw(int checkWithdraw);
+    boolean attemptWithdraw(int toWithdraw);
 }
