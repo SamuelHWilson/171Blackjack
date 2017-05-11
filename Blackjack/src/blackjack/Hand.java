@@ -13,7 +13,8 @@ import java.util.Collection;
 public interface Hand {
     void dealCard(Card c);
     Collection<Card> getCards();
-    
+    Card getCard(int index);
+    int getCardCount();
     int getHandValue();
     
     void setBet(double bet);

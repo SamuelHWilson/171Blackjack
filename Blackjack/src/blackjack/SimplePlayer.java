@@ -17,6 +17,12 @@ public class SimplePlayer implements Player {
     private final double INSURANCE_PAYOUT = 2.0;
     private final double SURRENDER_PAYOUT = 0.5;
     
+    
+    //Constructor ---
+    public SimplePlayer(double startingBankroll) {
+        b.setBalance(startingBankroll);
+    }
+    
     //Hand interface ---
     
     //Desc: Gets hand
@@ -49,6 +55,12 @@ public class SimplePlayer implements Player {
     @Override
     public boolean checkBust() {
         return h.getHandValue() > 21;
+    }
+    
+    //Desc: Checks to see if the player got a Blackjack
+    @Override
+    public boolean checkBlackjack() {
+        return (h.getCardCount() == 2 && h.getHandValue() == 21);
     }
     
     //Desc: Sets hand bet

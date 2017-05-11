@@ -16,7 +16,7 @@ public class SimpleHand implements Hand{
     private double bet = 0;
     private double insurance = 0;
     
-    private final int[] CARD_VALUES = new int[] {11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10};
+    private final int[] CARD_VALUES = new int[] {11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10};
     
     //Card stuff ---
     
@@ -30,6 +30,18 @@ public class SimpleHand implements Hand{
     @Override
     public Collection<Card> getCards() {
         return cards;
+    }
+    
+    //Desc: Gets count of cards in hand.
+    @Override
+    public int getCardCount() {
+        return cards.size();
+    }
+    
+    //Desc: Gets card at index.
+    @Override
+    public Card getCard(int index) {
+        return cards.get(index);
     }
     
     //Desc: Calculates and returns hand value based on blackjack rules

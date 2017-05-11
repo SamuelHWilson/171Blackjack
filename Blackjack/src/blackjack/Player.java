@@ -20,6 +20,7 @@ public interface Player {
     
     //Regular Rules
     boolean checkBust();
+    boolean checkBlackjack();
     void setBet(double bet);
     
     //Side rules
