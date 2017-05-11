@@ -10,23 +10,30 @@ import cards.*;
  * Purpose:     Creates a basic template for all Players. Manages a Hand, a Bank, and carries out Blackjack operations.
  */
 public interface Player {
+    //Hand interface
     Hand getHand();
-    
+    int getPoints();  
     void dealCard(Card c);
-    boolean checkBust();
-    void getPoints();
     
+    //Bank interface
+    double getBalance();
+    
+    //Regular Rules
+    boolean checkBust();
+    boolean checkBlackjack();
     void setBet(double bet);
     
+    //Side rules
     void doubleDown();
     void takeInsurance(double insurance);
-    void payInsurance();
     void surrender();
     
+    //Playouts
     void winHand();
     void winHandBlackjack();
-    void loseHand();
     void push();
+    void payInsurance();
     
+    //New round
     void resetHand();
 }

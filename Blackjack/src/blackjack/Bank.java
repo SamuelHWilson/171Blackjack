@@ -12,5 +12,5 @@ public interface Bank {
     double getBalance();
     void deposit(double toDeposit);
     boolean canWithdraw(double checkWithdraw);
-    boolean attemptWithdraw(double toWithdraw);
+    void withdraw(double toWithdraw);
 }
