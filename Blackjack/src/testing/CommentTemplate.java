@@ -8,5 +8,5 @@ package testing;
  * Purpose:     
  */
 public class CommentTemplate {
-    
+
 }
