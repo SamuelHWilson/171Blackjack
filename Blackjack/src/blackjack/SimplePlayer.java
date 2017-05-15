@@ -49,6 +49,11 @@ public class SimplePlayer implements Player {
         return b.getBalance();
     }
     
+    @Override
+    public void setBalance(double balance) {
+        b.setBalance(balance);
+    }
+    
     //Rules interface ---
     
     //Desc: Checks to see if player's hand is over 21

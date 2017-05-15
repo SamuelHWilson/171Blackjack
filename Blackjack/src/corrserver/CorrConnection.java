@@ -27,9 +27,21 @@ public class CorrConnection {
         }
     }
     
-    //Desc: Adds Responce to the CorrManagementThread
-    public void addCorrListener(int cID, Responce cl) {
-        cmt.RegisterCorrListener(cID, cl);
+    //Desc: Adds Response to the CorrManagementThread
+    public void addResponse(int cID, Response cl) {
+        cmt.RegisterResponse(cID, cl);
+    }
+    
+    //Desc: Adds OneTimeResponse to the CorrManagementThread
+    public void addOneTimeResponse(int cID, Response cl) {
+        cmt.RegisterOneTimeResponse(cID, cl);
+    }
+    
+    //Desc: Creates a request from cID
+    public Request requestFromCID(int cID) {
+        Request temp = new Request();
+        cmt.RegisterOneTimeResponse(cID, temp);
+        return temp;
     }
     
     //Desc: Sends Correspondence to server
@@ -37,6 +49,12 @@ public class CorrConnection {
         //Sight, HATE IOException
         try {
             csocketOut.writeUTF(String.valueOf(c.getCID()));
+            //Uncomment bellow to see whats being sent ---
+//            for (String s: c.getData()) {
+//                System.out.print(s + ", ");
+//            }
+//            System.out.println("");
+            //---
             csocketOut.writeUTF(String.valueOf(c.getData().length));
             for (String s: c.getData()) {
                 csocketOut.writeUTF(s);

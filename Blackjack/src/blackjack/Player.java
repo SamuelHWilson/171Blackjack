@@ -17,6 +17,7 @@ public interface Player {
     
     //Bank interface
     double getBalance();
+    void setBalance(double balance);
     
     //Regular Rules
     boolean checkBust();

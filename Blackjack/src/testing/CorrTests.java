@@ -10,7 +10,7 @@ public class CorrTests {
     public static void main(String[] args) {
         CorrServer server = new CorrServer(9000, (CorrConnection c) -> {
             serverCons.add(c);
-            c.addCorrListener(0, (String[] s) -> {
+            c.addResponse(0, (String[] s) -> {
                 for (String str: s) {
                     System.out.println(str);
                 }

@@ -8,10 +8,11 @@ package corrserver;
  * Purpose:     Provide a constructor and access methods for a structured message.
  */
 public class Correspondence {
-        private int cID;
+    private int cID;
     private String[] data;
     
-    //Constructor
+    //Desc: Constructor
+    //TODO: Fix so flags do not require any data
     public Correspondence(int cID, String... data) {
         this.cID = cID;
         this.data = data;

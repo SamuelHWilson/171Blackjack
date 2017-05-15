@@ -18,6 +18,7 @@ public class CorrServer {
     private Thread listenThread;
     
     private ArrayList<CorrConnection> connections = new ArrayList();
+    private boolean running = true;
     
     //Desc: Constructor
     public CorrServer(int port, CorrConnectionListener ccl) {
@@ -35,15 +36,17 @@ public class CorrServer {
     //Desc: Listens for new connections and then sets them up.
     private class ListenTask implements Runnable {
         public void run() {
-            Socket csocket;
-            try {
-                csocket = ssocket.accept();
-            } catch (IOException ex) {
-                throw new RuntimeException("Cleint tried to connect but could not.");
+            while (running) {
+                Socket csocket;
+                try {
+                    csocket = ssocket.accept();
+                } catch (IOException ex) {
+                    throw new RuntimeException("Cleint tried to connect but could not.");
+                }
+
+                connections.add(new CorrConnection(csocket));
+                ccl.alert(connections.get(connections.size()-1));
             }
-            
-            connections.add(new CorrConnection(csocket));
-            ccl.alert(connections.get(connections.size()-1));
         }
     }
 }
