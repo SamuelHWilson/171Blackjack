@@ -1,5 +1,6 @@
 package blackjack;
 
+import cards.Card;
 import cards.Shoe;
 import javafx.application.Application;
 import javafx.scene.control.Button;
@@ -16,6 +17,7 @@ import javafx.stage.Stage;
  */
 public class BlackjackGUI extends Application {
     Player p = new SimplePlayer(5000);
+    Player dealer = new SimplePlayer(0);
     Shoe deck = new Shoe(4);
     InputHolder ih = new InputHolder();
     
@@ -24,7 +26,7 @@ public class BlackjackGUI extends Application {
         VBox main = new VBox();
         
         main.getChildren().add(ih);
-        Button startButton = new Button();
+        Button startButton = new Button("Start Game");
         startButton.setOnAction((ae) -> {
             startRound();
         });
@@ -40,7 +42,10 @@ public class BlackjackGUI extends Application {
     //Blackjack functions
     
     public void startRound() {
-        
+        p.dealCard(deck.draw());
+        p.dealCard(deck.draw());
+        dealer.dealCard(deck.draw());
+        dealer.dealCard(deck.draw());
     }
     
     //Gui classes ---
@@ -56,6 +61,25 @@ public class BlackjackGUI extends Application {
         //Desc: Clears holder of buttons
         public void clear() {
             this.getChildren().clear();
+        }
+    }
+    
+    //Desc: Displays a hand
+    public class HandPane extends HBox {
+        private Card[] cards;
+        private int points;
+        
+        //Desc: Constructor
+        public void displayHand(Card[] cards, int points) {
+            this.points = points;
+            this.cards = cards;
+            draw();
+        }
+        
+        private void draw() {
+            for (Card c: cards) {
+                this.getChildren().add(new ImageView())
+            }
         }
     }
 }
