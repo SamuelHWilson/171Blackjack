@@ -87,8 +87,9 @@ public class SimplePlayer implements Player {
     
     //Desc: Takes out insurance, costs 0.5 times bet
     @Override
-    public void takeInsurance(double insurance) {
-        h.setInsurance(insurance);
+    public void takeInsurance() {
+        b.withdraw(h.getBet());
+        h.setInsurance(h.getBet());
     }
     
     //Desc: Surrenders hand

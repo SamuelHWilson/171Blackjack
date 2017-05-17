@@ -13,6 +13,7 @@ public class Card {
     
     private int rank;
     private int suit;
+    private int cardNo;
     
     //Constructs a card from it's numeric representation
     public Card(int cardNo) {
@@ -23,6 +24,7 @@ public class Card {
         
         rank = cardNo % 13;
         suit = cardNo / 13;
+        this.cardNo = cardNo;
     }
     
     //Getters
@@ -40,6 +42,10 @@ public class Card {
     
     public String suitString() {
         return SUIT_STRINGS[suit];
+    }
+    
+    public int getCardNo() {
+        return cardNo;
     }
     
     //Util

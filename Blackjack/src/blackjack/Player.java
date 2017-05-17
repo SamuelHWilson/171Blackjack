@@ -26,7 +26,7 @@ public interface Player {
     
     //Side rules
     void doubleDown();
-    void takeInsurance(double insurance);
+    void takeInsurance();
     void surrender();
     
     //Playouts

@@ -1,0 +1,51 @@
+/*
+Colors.
+
+Text: #404040
+Flavor text: #ff5050
+
+*/
+
+/*   Utility   */
+.ct_right {
+    -fx-content-display: right;
+}
+
+/*   General   */
+.body {
+    -fx-focus-color: transparent;
+}
+
+.button, .label, .text-feild {
+    -fx-text-fill: #404040;
+    -fx-font-size: 1.2em;
+}
+
+.button, .text_input, .flavor_text {
+    -fx-text-fill: #ff5050;
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-background-color: #d9d9d9;
+}
+
+/*   Specific   */
+.body {
+    -fx-background-color: #006600;
+}
+
+.stat_tracker, .input_holder {
+    -fx-background-color: #b3b3b3;
+    -fx-border-style: solid;
+    -fx-border-color: #999999;
+}
+
+.stat_tracker {
+    -fx-border-width: 0px 0px 1px 0px;
+}
+
+.input_holder {
+    -fx-border-width: 1px 0px 0px 0px;
+}
+
