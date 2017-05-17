@@ -46,6 +46,8 @@ public class BlackjackGUI extends Application {
     InputHolder ih = new InputHolder();
     
     int phase = 0;
+    int win = 0;
+    int loss = 0;
     
     final double MINIMUM_BET = 100.0;
     
@@ -291,22 +293,27 @@ public class BlackjackGUI extends Application {
         
         if (p.checkBust()) {
             outcome = "bust";
+            loss++;
         } else if (dealer.checkBlackjack()) {
             if (p.checkBlackjack()) {
                 p.push();
                 outcome = "pushed";
             } else {
                 outcome = "lost";
+                loss++;
             }
         } else if (p.checkBlackjack()) {
             p.winHandBlackjack();
             outcome = "got a Blackjack";
+            win++;
         } else {
             if (p.getPoints() > dealer.getPoints() || dealer.checkBust()) {
                 p.winHand();
                 outcome = "won";
+                win++;
             } else if (dealer.getPoints() > p.getPoints()) {
                 outcome = "lost";
+                loss++;
             } else {
                 p.push();
                 outcome = "pushed";
@@ -372,6 +379,8 @@ public class BlackjackGUI extends Application {
         private Label bankLabel = new Label();
         private Label betLabel = new Label();
         private Label insuranceLabel = new Label();
+        private Label winLabel = new Label();
+        private Label lossLabel = new Label();
         private HBox main = new HBox();
         
         //Desc: Constructor
@@ -385,7 +394,13 @@ public class BlackjackGUI extends Application {
             Label insuranceLabelHolder = new Label("Insurance: ", insuranceLabel);
             insuranceLabelHolder.getStyleClass().addAll("flavor_text", "ct_right");
             
-            this.getChildren().addAll(bankLabelHolder, betLabelHolder, insuranceLabelHolder);
+            Label winLabelHolder = new Label("Wins: ", winLabel);
+            winLabelHolder.getStyleClass().addAll("flavor_text", "ct_right");
+            
+            Label lossLabelHolder = new Label("Losses: ", lossLabel);
+            lossLabelHolder.getStyleClass().addAll("flavor_text", "ct_right");
+            
+            this.getChildren().addAll(bankLabelHolder, betLabelHolder, insuranceLabelHolder, winLabelHolder, lossLabelHolder);
             this.getStyleClass().add("stat_tracker");
             this.setAlignment(Pos.CENTER);
             this.setPadding(new Insets(5, 10, 5, 10));
@@ -408,11 +423,23 @@ public class BlackjackGUI extends Application {
             insuranceLabel.setText(String.format("$%.2f", p.getHand().getInsurance()));
         }
         
+        //Desc: Updates insurance label
+        public void updateWinLabel() {
+            winLabel.setText(String.valueOf(win));
+        }
+        
+        //Desc: Updates insurance label
+        public void updateLossLabel() {
+            lossLabel.setText(String.valueOf(loss));
+        }
+        
         //Desc: Updates all
         public void update() {
             updateBankLabel();
             updateBetLabel();
             updateInsuranceLabel();
+            updateWinLabel();
+            updateLossLabel();
         }
     }
     
